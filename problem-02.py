@@ -1,7 +1,7 @@
 '''
 Daniel Naylor
 5094024
-10/19/2022
+10/20/2022
 '''
 
 import math
@@ -35,7 +35,7 @@ def compute_lambda_direct(*, n: int, j: int, data: List[Tuple[float, float]] = d
     `data` is the dataset that these lambdas will be computed from.
     '''
     prod = 1.0
-    for k in range(n+1):
+    for k in range(n+1): # 0, 1, ..., n
         if k==j: continue
         prod *= (data[j][0] - data[k][0])
 
@@ -60,7 +60,8 @@ def create_poly_interp(data: List[Tuple[float, float]] = data_points) -> Callabl
     Returns a polynomial interpolation based on the
     given dataset using Barycentric Weights.
 
-    The returned callable will act as a mathematical function.
+    The returned callable will act as a mathematical function
+    that is defined everywhere except at the datapoints themselves.
     '''
     def wrap(x: float):
         top_sum = 0.0
