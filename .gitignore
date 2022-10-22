@@ -1,1 +1,2 @@
-HW02.pdf
+*.pdf
+!Responses.pdf
